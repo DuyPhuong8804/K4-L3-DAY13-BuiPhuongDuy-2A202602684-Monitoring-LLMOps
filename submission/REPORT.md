@@ -8,7 +8,7 @@
 - **MSSV:** 2A202602684
 - **Lớp:** K4-L3B
 - **Repository URL:** https://github.com/DuyPhuong8804/K4-L3-DAY13-BuiPhuongDuy-2A202602684-Monitoring-LLMOps
-- **Commit SHA cuối:** 
+- **Commit SHA cuối:** 03c59730f1358d0bc0194bbe1dada5ea25947a1b
 - **Challenge ID:** `day13-k4-l3b-monitoring-llmops-v1`
 - **Tên project Langfuse cá nhân:** `day13-k4-l3b-02684`
 
@@ -16,22 +16,22 @@
 
 Điền đúng đường dẫn tới evidence thực tế. Có thể đổi tên hoặc dùng nhiều ảnh nếu cần.
 
-| Evidence | Ảnh |
+| Evidence | Đường dẫn |
 |---|---|
-| Pytest cuối | ![Pytest cuối](evidence/01-pytest.png) |
-| Log validator | ![Log validator](evidence/02-log-validator.png) |
-| Dashboard validator | ![Dashboard validator](evidence/03-dashboard-validator.png) |
-| Structured log | ![Structured log](evidence/04-structured-log.png) |
-| PII redaction | ![PII redaction](evidence/05-pii-redaction.png) |
-| Trace list | ![Trace list](evidence/06-trace-list.png) |
-| Trace waterfall | ![Trace waterfall](evidence/07-trace-waterfall.png) |
-| Trace metadata | ![Trace metadata 08a](evidence/08a-trace-metadata.png) ![Trace metadata 08b](evidence/08b-trace-metadata.png) |
-| Prompt versions | ![Prompt versions](evidence/09-prompt-versions.png) |
-| Prompt rollback | ![Prompt rollback 10a](evidence/10a-prompt-rollback.png) ![Prompt rollback 10b](evidence/10b-prompt-rollback.png) |
-| Dashboard runtime | ![Dashboard runtime](evidence/11-dashboard-overview.png) |
-| Incident metric | ![Incident metric](evidence/12-incident-metric.png) |
-| Incident log | ![Incident log](evidence/13-incident-log.png) |
-| Incident trace | ![Incident trace](evidence/14-incident-trace.png) |
+| Pytest cuối | `evidence/01-pytest.png` |
+| Log validator | `evidence/02-log-validator.png` |
+| Dashboard validator | `evidence/03-dashboard-validator.png` |
+| Structured log | `evidence/04-structured-log.png` |
+| PII redaction | `evidence/05-pii-redaction.png` |
+| Trace list | `evidence/06-trace-list.png` |
+| Trace waterfall | `evidence/07-trace-waterfall.png` |
+| Trace metadata | `evidence/08a-trace-metadata.png`, `evidence/08b-trace-metadata.png` |
+| Prompt versions | `evidence/09-prompt-versions.png` |
+| Prompt rollback | `evidence/10a-prompt-rollback.png`, `evidence/10b-prompt-rollback.png` |
+| Dashboard runtime | `evidence/11-dashboard-overview.png` |
+| Incident metric | `evidence/12-incident-metric.png` |
+| Incident log | `evidence/13-incident-log.png` |
+| Incident trace | `evidence/14-incident-trace.png` |
 
 ## 3. Kết quả kỹ thuật
 
@@ -40,7 +40,7 @@
 | `validate_logs.py` | 30/100 (21 records; 20 thiếu required fields, 20 thiếu enrichment, 0 correlation ID; PII scrub PASSED) | 100/100 sau CP1 (10 correlation ID, 0 PII leak) | Baseline trước khi sửa code CP1 |
 | `validate_dashboard.py` | HỢP LỆ 6/6 panel | HỢP LỆ 6/6 panel | Dashboard `scripts/dashboard.py` khớp `config/dashboard.yaml` |
 | `pytest` | 22 passed | 26 passed (CP1, thêm test CCCD/thẻ/passport) | |
-| Số traces hợp lệ | | 17 trace `day13-agent-request` (root `lab-agent-run`, AGENT) trong project cá nhân, mỗi trace có child `retrieval` và `generation` | Ảnh 06: Total 17 |
+| Số traces hợp lệ | | ≥ 12 trace `lab-agent-run`, mỗi trace có child `retrieval` và `generation` | Xem ảnh 06 |
 | Số PII leak | 0 | 0 | `validate_logs.py`: Potential PII leaks detected: 0 |
 | Latency P95 / TTFT P95 | ~152 ms / 50 ms (9 request baseline, đã loại request warm-up đầu tiên ~1.300 ms) | 2,654 ms / 50 ms (gồm request bị `rag_slow`) | Chỉ latency tăng, TTFT không đổi |
 | Retrieval success rate | 100% | 100% (`tool_success=true` mọi request) | Sự cố làm chậm chứ không làm lỗi retrieval |
